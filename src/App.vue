@@ -7,6 +7,7 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import words from "./assets/words";
 
 export default {
   name: "App",
