@@ -1,51 +1,52 @@
 <template>
-    <div>
-        <div v-for="singleWord in AllWords" :key="singleWord.id">
-            <div v-if="singleWord.id === currentIndex">
-                <robot :word="singleWord" />
-            </div>
-        </div>
-      
-      <v-form @submit.prevent="handleSave" ref="spellingInput">
-        <v-text-field
-          outlined
-          label="Spell The Word"
-          v-model="form.spelling"
-        />
-        <v-btn type="submit" color="blue-grey lighten-3" dark>Submit</v-btn>
-       </v-form>
-    </div>
+  <div class="d-flex justify-center">
+    <v-col :lg="8">
+        <robot :word="currentWord" />
+
+        <v-form @submit.prevent="handleSubmit" ref="spellingInput">
+          <v-row>
+            <v-text-field outlined label="Spell The Word" v-model="form.spelling" />
+          </v-row>
+          <v-row>
+            <v-btn type="submit" color="blue-grey lighten-3" dark>Submit</v-btn>
+          </v-row>
+        </v-form>
+        <results />
+    </v-col>
+  </div>
 </template>
 
-<script> 
- import Robot from "./Robot";
- import words from "../assets/words";
- export default {
-     data() {
-        return {
-             AllWords: words,
-             form: {
-                 spelling: ""
-             },
-             currentIndex: 6
-         }
-     },
-     components: {
-         Robot
-     },
-    methods: {
-      handleSave() {
-        this.$emit("word-spelled", this.form)
+<script>
+import Robot from "./Robot";
+import words from "../assets/words";
+export default {
+  props: ["currentIndex"],
+  data() {
+    return {
+      AllWords: words,
+      form: {
+        spelling: "",
+      },
+    };
+  },
+  components: {
+    Robot
+  },
+  methods: {
+    handleSubmit() {
+      this.$emit("spelling-saved", this.form)
+      this.form = {
+        spelling: ""
       }
     },
-    computed: {
-        CurrentWord() {
-            return this.AllWords.filter(w => w.id = 1)
-        }
+  },
+  computed: {
+    currentWord() {
+      return words[this.currentIndex]
     }
- }
-</script>
+  }
+};
+</script> 
 
 <style scoped>
-
 </style>
