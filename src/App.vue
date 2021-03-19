@@ -36,7 +36,7 @@ export default {
   },
   methods: {
     saveSpelling(input) {
-      this.AllWords[this.index].userInput = input;
+      this.AllWords[this.index].userInput = input.spelling;
       this.index += 1;
     }
   },
