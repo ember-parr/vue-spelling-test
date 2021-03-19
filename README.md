@@ -1,5 +1,5 @@
 # spelling-test
-
+[View Live Demo](https://emberparr-spelling-test.web.app/)
 ## Project setup
 ```
 npm install
