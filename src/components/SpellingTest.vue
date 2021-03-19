@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex justify-center">
-    <v-col :lg="8">
+  <div >
+    <v-col>
         <robot :word="currentWord" />
 
-        <v-form @submit.prevent="handleSubmit" ref="spellingInput">
+        <v-form @submit.prevent="handleSubmit" ref="spellingInput" class="userInputForm">
           <v-row>
             <v-text-field outlined label="Spell The Word" v-model="form.spelling" />
           </v-row>
@@ -49,4 +49,7 @@ export default {
 </script> 
 
 <style scoped>
+.userInputForm {
+  width: 250px;
+}
 </style>

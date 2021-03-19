@@ -1,20 +1,15 @@
 <template>
   <div >
       <v-col>
-        <v-row>
-            <p>Word {{ word.id }} of 10</p>
+        <v-row >
+            <p>  Word {{ word.id }} of 10</p>
         </v-row>
         <v-row>
             <img alt="Sound Icon" src="../assets/sound-icon.png" class="soundIcon" @click="readWord" />
         </v-row>
         <v-row>
-            <p>Say Word</p>
+            <h4 @click="readWord" class="mb-10 justify-center">Hear The Word</h4>
         </v-row>
-        <v-row>
-            <p>{{ word.word }}</p>
-        </v-row>
-        
-            <p>{{ word.userInput || "none yet "}}</p>
       </v-col>
   </div>
 </template> 
@@ -28,6 +23,11 @@ export default {
           const utterance = new SpeechSynthesisUtterance(this.word.word);
           speechSynthesis.speak(utterance);
       }
+  },
+  watch: {
+    word() {
+      this.readWord();
+    }
   }
 };
 </script>

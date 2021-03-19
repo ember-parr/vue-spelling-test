@@ -48,9 +48,5 @@ export default [
     id: 10,
     word: "Iteration",
     userInput: null,
-  },
-  {
-      id: 11,
-      word: "ball hair!"
   }
 ];
