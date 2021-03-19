@@ -1,28 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-app>
+    <v-app-bar app color="blue-grey" dark>
+      <div class="d-flex align-center">
+        <p>Can You Spell It?</p>
+      </div>
+      <v-spacer></v-spacer>
+
+    </v-app-bar>
+
+    <v-main class="d-flex justify-center">
+      <div v-if="index < AllWords.length">
+        <SpellingTest :currentIndex="index" @spelling-saved="saveSpelling" />
+      </div>
+      <div v-else>
+        <results />
+      </div>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import SpellingTest from "./components/SpellingTest";
+import Results from "./components/Results";
+import words from "./assets/words";
 export default {
   name: "App",
+    data: () => ({
+      AllWords: words, 
+      index: 0
+    }),
+
   components: {
-    HelloWorld,
+    SpellingTest,
+    Results
   },
+  methods: {
+    saveSpelling(input) {
+      this.AllWords[this.index].userInput = input;
+      this.index += 1;
+    }
+  },
+
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
 </style>
