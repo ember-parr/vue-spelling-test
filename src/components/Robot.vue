@@ -1,14 +1,14 @@
 <template>
   <div >
       <v-col>
-        <v-row>
+        <v-row >
             <p>  Word {{ word.id }} of 10</p>
         </v-row>
         <v-row>
             <img alt="Sound Icon" src="../assets/sound-icon.png" class="soundIcon" @click="readWord" />
         </v-row>
         <v-row>
-            <h4 @click="readWord" class="mb-10">Hear The Word</h4>
+            <h4 @click="readWord" class="mb-10 justify-center">Hear The Word</h4>
         </v-row>
       </v-col>
   </div>

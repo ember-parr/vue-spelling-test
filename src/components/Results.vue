@@ -14,7 +14,7 @@ export default {
     },
     computed: {
         answersCorrect() {
-            let correct = this.AllWords.filter(w => w.word === w.userInput)
+            let correct = this.AllWords.filter(w => w.word.toLowerCase() === w.userInput.toLowerCase())
             return correct.length
         }
     }

@@ -1,20 +1,21 @@
 <template>
   <v-app>
     <v-app-bar app color="blue-grey" dark>
-      <div class="d-flex align-center">
+      <div class="v-flex align-center">
         <p>Can You Spell It?</p>
       </div>
       <v-spacer></v-spacer>
-
     </v-app-bar>
 
-    <v-main class="d-flex justify-center">
-      <div v-if="index < AllWords.length">
+    <v-main class="p">
+      <v-card elevation="2 mx-auto pa-4" width="300px" class="mt-8">
+      <div v-if="index < AllWords.length" >
         <SpellingTest :currentIndex="index" @spelling-saved="saveSpelling" />
       </div>
       <div v-else>
         <results />
       </div>
+      </v-card>
     </v-main>
   </v-app>
 </template>
