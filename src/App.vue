@@ -1,18 +1,16 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <h1>Spelling Test</h1>
+    <spelling-test />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-import words from "./assets/words";
-
+import SpellingTest from './components/SpellingTest.vue';
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    SpellingTest,
   },
 };
 </script>
